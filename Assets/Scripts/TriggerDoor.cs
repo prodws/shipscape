@@ -14,7 +14,7 @@ public class TriggerDoor : MonoBehaviour
     {
         Vector3 direction = openLeft ? Vector3.left : Vector3.right;
         openPos = door.localPosition + direction * openDistance;
-        Debug.Log($"Door target position: {openPos}");
+        //Debug.Log($"Door target position: {openPos}");
 
 
     }

@@ -68,7 +68,7 @@ public class PlayerInteractor : MonoBehaviour
             return;
         }
 
-        Debug.Log(hit.collider.name);
+        //Debug.Log(hit.collider.name);
 
         if (HandleToolUse(hit)) return;
         HandlePickup(hit);

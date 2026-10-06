@@ -8,7 +8,7 @@ public class UnderwaterEffect : MonoBehaviour
     private Camera playerCamera;
     private WaterLevel waterLevel;
 
-    [SerializeField] private float waterOffset = 0.1f;
+    //[SerializeField] private float waterOffset = 0.1f;
 
     private void Awake()
     {

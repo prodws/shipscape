@@ -14,7 +14,7 @@ public class Pushable : MonoBehaviour
 
     public void Push(Vector3 direction)
     {
-        Debug.Log("Moving pushable");
+        //Debug.Log("Moving pushable");
         rb.linearVelocity = direction * pushSpeed;
     }
 }
