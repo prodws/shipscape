@@ -10878,7 +10878,6 @@ GameObject:
   - component: {fileID: 222773732}
   - component: {fileID: 222773731}
   - component: {fileID: 222773730}
-  - component: {fileID: 222773733}
   - component: {fileID: 222773734}
   m_Layer: 0
   m_Name: ElectricityLight
@@ -10980,18 +10979,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 222773728}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!114 &222773733
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 222773728}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5110a9193b97a8e4686d19774cf4b6fc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: '::'
 --- !u!114 &222773734
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -28342,7 +28329,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 658066951}
-  - component: {fileID: 658066952}
   m_Layer: 0
   m_Name: FuseLights
   m_TagString: Untagged
@@ -28368,18 +28354,6 @@ Transform:
   - {fileID: 222773729}
   m_Father: {fileID: 401721663}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &658066952
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 658066950}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c0e1515e6c430df289dc9cff1105e4f5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: '::'
 --- !u!4 &668042903 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8578420359508454451, guid: ab25669da18089a42a253ff0bd3a1b29, type: 3}
@@ -33229,17 +33203,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7199877908900144772, guid: 66c68292b4c0bbcbe8d15593c1551c3a, type: 3}
   m_PrefabInstance: {fileID: 826127860}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &826127862 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 4545287927594181347, guid: 66c68292b4c0bbcbe8d15593c1551c3a, type: 3}
-  m_PrefabInstance: {fileID: 826127860}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ee83498f1306c15f6b5ca26e783f1742, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Fuse
 --- !u!1 &827347586
 GameObject:
   m_ObjectHideFlags: 0
@@ -39205,7 +39168,7 @@ PrefabInstance:
     - target: {fileID: 867141902774294252, guid: 1200f6ee94b7e128eb40f44d27d4b023, type: 3}
       propertyPath: onPuzzleSolved.m_PersistentCalls.m_Calls.Array.data[2].m_Target
       value: 
-      objectReference: {fileID: 1056628664}
+      objectReference: {fileID: 0}
     - target: {fileID: 867141902774294252, guid: 1200f6ee94b7e128eb40f44d27d4b023, type: 3}
       propertyPath: onPuzzleSolved.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
       value: 2
@@ -39311,7 +39274,8 @@ PrefabInstance:
       value: Panel (1)
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 5036339162387489953, guid: 1200f6ee94b7e128eb40f44d27d4b023, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1200f6ee94b7e128eb40f44d27d4b023, type: 3}
@@ -40235,7 +40199,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1056628663}
-  - component: {fileID: 1056628664}
   m_Layer: 0
   m_Name: PanelGroup
   m_TagString: Untagged
@@ -40261,46 +40224,6 @@ Transform:
   - {fileID: 1739123589}
   m_Father: {fileID: 1045128523}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1056628664
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1056628662}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 365399f8981550392acfa730499f3e17, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: '::'
-  puzzlesRequired: 3
-  onAllPuzzlesSolved:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 826127862}
-        m_TargetAssemblyTypeName: Fuse, Assembly-CSharp
-        m_MethodName: Unlock
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 1754951748743829153}
-        m_TargetAssemblyTypeName: Fuse, Assembly-CSharp
-        m_MethodName: Unlock
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!1001 &1057015146
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -46168,7 +46091,7 @@ PrefabInstance:
     - target: {fileID: 867141902774294252, guid: 1200f6ee94b7e128eb40f44d27d4b023, type: 3}
       propertyPath: onPuzzleSolved.m_PersistentCalls.m_Calls.Array.data[2].m_Target
       value: 
-      objectReference: {fileID: 1056628664}
+      objectReference: {fileID: 0}
     - target: {fileID: 867141902774294252, guid: 1200f6ee94b7e128eb40f44d27d4b023, type: 3}
       propertyPath: onPuzzleSolved.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
       value: 2
@@ -46274,7 +46197,8 @@ PrefabInstance:
       value: Panel
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 5036339162387489953, guid: 1200f6ee94b7e128eb40f44d27d4b023, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1200f6ee94b7e128eb40f44d27d4b023, type: 3}
@@ -49272,7 +49196,7 @@ PrefabInstance:
     - target: {fileID: 867141902774294252, guid: 1200f6ee94b7e128eb40f44d27d4b023, type: 3}
       propertyPath: onPuzzleSolved.m_PersistentCalls.m_Calls.Array.data[2].m_Target
       value: 
-      objectReference: {fileID: 1056628664}
+      objectReference: {fileID: 0}
     - target: {fileID: 867141902774294252, guid: 1200f6ee94b7e128eb40f44d27d4b023, type: 3}
       propertyPath: onPuzzleSolved.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
       value: 2
@@ -49378,7 +49302,8 @@ PrefabInstance:
       value: Panel (2)
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 5036339162387489953, guid: 1200f6ee94b7e128eb40f44d27d4b023, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1200f6ee94b7e128eb40f44d27d4b023, type: 3}
@@ -202372,7 +202297,8 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 4669744062039706045, guid: 93d24e11d04757f41a0bd65cd0d3cff3, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -205188,17 +205114,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 66c68292b4c0bbcbe8d15593c1551c3a, type: 3}
---- !u!114 &1754951748743829153 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 4545287927594181347, guid: 66c68292b4c0bbcbe8d15593c1551c3a, type: 3}
-  m_PrefabInstance: {fileID: 1754951748743829152}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ee83498f1306c15f6b5ca26e783f1742, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Fuse
 --- !u!1001 &4877026973095243989
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -205328,8 +205243,7 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 2095574524565633207, guid: db24219db83c74f4690034ef2e7d21b4, type: 3}
+    m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
