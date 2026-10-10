@@ -581,7 +581,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d8a9cc9a5adc43ecb208d07e573bad1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FlickeringLight
-  targetLight: {fileID: 0}
+  targetLights: []
   normalIntensity: 1.5
   minTimeBetweenFlickerBursts: 0.5
   maxTimeBetweenFlickerBursts: 3

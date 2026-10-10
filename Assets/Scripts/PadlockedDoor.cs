@@ -19,7 +19,7 @@ public class PadlockedDoor : MonoBehaviour
         if (padlock.IsLocked)
             return; 
 
-        Debug.Log("Opening door");
+        //Debug.Log("Opening door");
 
         float distance = Vector3.Distance(startLocalPosition, transform.localPosition);
 
