@@ -4,7 +4,7 @@ public class PadlockedDoor : MonoBehaviour
 {
     [SerializeField] private Padlock padlock;
     [SerializeField] private float doorLength = 1.5f;
-    [SerializeField] private float step = 0.005f;
+    [SerializeField] private float step = 0.5f; // increased speed (units per second)
 
     private Vector3 startLocalPosition;
 
@@ -25,7 +25,7 @@ public class PadlockedDoor : MonoBehaviour
 
         if (distance < doorLength)
         {
-            transform.localPosition -= Vector3.forward * step;
+            transform.localPosition -= Vector3.forward * step * Time.deltaTime;
             Debug.Log("Opening door");
         }
     }

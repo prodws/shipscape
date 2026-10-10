@@ -4,7 +4,7 @@ using UnityEngine;
 public class Screw : MonoBehaviour
 {
     [SerializeField] private float screwLength = 0.1f;
-    [SerializeField] private float step = 0.0001f;
+    [SerializeField] private float step = 0.5f;
     [SerializeField] private float rotationStep = 2f;
     [SerializeField] private Rigidbody rb;
     [SerializeField] private bool isScrewedIn = true;
@@ -32,8 +32,8 @@ public class Screw : MonoBehaviour
 
         if (distance < screwLength)
         {
-            transform.localPosition -= Vector3.forward * step;
-            transform.Rotate(Vector3.back, rotationStep, Space.Self);
+            transform.localPosition -= Vector3.forward * step * Time.deltaTime;
+            transform.Rotate(Vector3.back, rotationStep * Time.deltaTime, Space.Self);
             Debug.Log("Unscrewing screw");
         }
         else
