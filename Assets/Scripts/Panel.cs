@@ -1,9 +1,12 @@
+using System.Collections;
 using UnityEngine;
 
 public class Panel : MonoBehaviour
 {
     [SerializeField] private GameObject cup;
+    [SerializeField] private GameObject knob;
     private Rigidbody cupRb;
+    private BoxCollider knobCollider;
 
     private Screw[] screws;
 
@@ -14,6 +17,9 @@ public class Panel : MonoBehaviour
         cupRb = cup.GetComponent<Rigidbody>();
         cupRb.isKinematic = true;
         cupRb.useGravity = false;
+
+        knobCollider = knob.GetComponent<BoxCollider>();
+        knobCollider.enabled = false;
     }
 
     private void Update()
@@ -30,6 +36,7 @@ public class Panel : MonoBehaviour
         }
 
         DropCup();
+        knobCollider.enabled = true;
         enabled = false;
     }
 
@@ -43,4 +50,30 @@ public class Panel : MonoBehaviour
 
         
     }
+
+    public IEnumerator RotateKnob()
+    {
+        Quaternion startRotation = knob.transform.rotation;
+        Quaternion targetRotation = startRotation * Quaternion.Euler(-87, 0, 0);
+
+        float duration = 1f;
+        float elapsed = 0f;
+
+        while (elapsed < duration)
+        {
+            knob.transform.rotation = Quaternion.Slerp(
+                startRotation, targetRotation, elapsed / duration);
+
+            elapsed += Time.deltaTime;
+            yield return null;
+        }
+
+        knob.transform.rotation = targetRotation;
+    }
+
+    public void disableKnobCollider()
+    {
+        knobCollider.enabled = false;
+    }
+    
 }

@@ -77,6 +77,7 @@ public class PlayerInteractor : MonoBehaviour
         HandleSceneDoor(hit);
         HandleBrokenFuse(hit);
         HandleBoat(hit);
+        HandleKnob(hit);
     }
 
     private void HandleDrop()
@@ -211,6 +212,16 @@ public class PlayerInteractor : MonoBehaviour
         Boat boat = hit.collider.GetComponentInParent<Boat>();
         if (boat != null)
             boat.Interact();
+    }
+
+    private void HandleKnob(RaycastHit hit)
+    {
+        if (!interactAction.WasPressedThisFrame())
+            return;
+
+        Knob knob = hit.collider.GetComponentInParent<Knob>();
+        if (knob != null)
+            knob.Interact();
     }
 
     
