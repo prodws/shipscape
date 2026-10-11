@@ -20541,7 +20541,7 @@ Light:
   m_Type: 0
   m_Color: {r: 0.6132076, g: 0.03760237, b: 0.03760237, a: 1}
   m_Intensity: 650
-  m_Range: 100
+  m_Range: 50
   m_SpotAngle: 100
   m_InnerSpotAngle: 80
   m_CookieSize2D: {x: 0.5, y: 0.5}
@@ -27668,7 +27668,7 @@ PrefabInstance:
       objectReference: {fileID: 2095737427}
     - target: {fileID: 174547743528662722, guid: 6d3f4f5588f4c9b79918900458928df2, type: 3}
       propertyPath: m_VersionIndex
-      value: 22
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 343299092707146441, guid: 6d3f4f5588f4c9b79918900458928df2, type: 3}
       propertyPath: m_Mesh
@@ -27680,7 +27680,7 @@ PrefabInstance:
       objectReference: {fileID: 1336438656}
     - target: {fileID: 461613843142486486, guid: 6d3f4f5588f4c9b79918900458928df2, type: 3}
       propertyPath: m_VersionIndex
-      value: 19
+      value: 22
       objectReference: {fileID: 0}
     - target: {fileID: 2408377717826291068, guid: 6d3f4f5588f4c9b79918900458928df2, type: 3}
       propertyPath: m_LocalScale.x
@@ -27792,7 +27792,7 @@ PrefabInstance:
       objectReference: {fileID: 2131489860}
     - target: {fileID: 3870999269802195659, guid: 6d3f4f5588f4c9b79918900458928df2, type: 3}
       propertyPath: m_VersionIndex
-      value: 22
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 4046395812022497238, guid: 6d3f4f5588f4c9b79918900458928df2, type: 3}
       propertyPath: m_IsActive
@@ -27804,7 +27804,7 @@ PrefabInstance:
       objectReference: {fileID: 1512224817}
     - target: {fileID: 5105066700967684064, guid: 6d3f4f5588f4c9b79918900458928df2, type: 3}
       propertyPath: m_VersionIndex
-      value: 22
+      value: 25
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
