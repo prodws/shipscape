@@ -7,8 +7,21 @@ public class AudioManager : MonoBehaviour
     [Header("Sources")]
     [SerializeField] private AudioSource sfxSource;
     [SerializeField] private AudioSource musicSource;
+    [SerializeField] private AudioSource evacuationSource;
+    [SerializeField] private AudioSource heartBeatSource;
+    [SerializeField] private AudioSource waterSource;
+    [SerializeField] private AudioSource rattleSource;
+
+    [SerializeField] private AudioClip heartbeat;
+    [SerializeField] private AudioClip waterGushing;
+    [SerializeField] private AudioClip rattle;
 
     [Header("Floor 1")]
+
+    [Header("Evacuation")]
+    [SerializeField] private AudioClip evacuate;
+    [SerializeField] private AudioClip siren;
+
     [SerializeField] private AudioClip keyPickup;
     [SerializeField] private AudioClip keyDrop;
     [SerializeField] private AudioClip screwdriverPickup;
@@ -44,12 +57,19 @@ public class AudioManager : MonoBehaviour
     [SerializeField] private AudioClip endingMusic;
     [SerializeField] private AudioClip sea;
 
+
+
     private void Awake()
     {
         if (Instance == null)
+        {
             Instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
         else
+        {
             Destroy(gameObject);
+        }
     }
 
     private void Play(AudioClip clip)
@@ -96,6 +116,28 @@ public class AudioManager : MonoBehaviour
         musicSource.Play();
     }
 
+    public void PlayHeartBeat()
+    {
+        heartBeatSource.clip = heartbeat;
+        heartBeatSource.loop = true;
+        heartBeatSource.Play();
+        Debug.Log($"Source: {heartBeatSource}, Clip: {heartBeatSource?.clip}, Active: {heartBeatSource?.gameObject.activeInHierarchy}");
+    }
+
+    public void PlayWaterGushing()
+    {
+        waterSource.clip = waterGushing;
+        waterSource.loop = true;
+        waterSource.Play();
+    }
+
+    public void PlayRattle()
+    {
+        rattleSource.clip = rattle;
+        rattleSource.loop = true;
+        rattleSource.Play();
+    }
+
     public void PlayTenseMusic() => PlayMusic(tenseMusic);
     public void PlayEndingMusic() => PlayMusic(endingMusic);
 
@@ -131,5 +173,24 @@ public class AudioManager : MonoBehaviour
             sfxSource.loop = false;
             sfxSource.clip = null;
         }
+    }
+
+    public void PlayEvacuation()
+    {
+        Debug.Log($"Source: {evacuationSource}, Voice: {evacuate}");
+        StartCoroutine(EvacuationSequence());
+    }
+
+    private System.Collections.IEnumerator EvacuationSequence()
+    {
+        evacuationSource.loop = false;
+        evacuationSource.clip = evacuate;
+        evacuationSource.Play();
+
+        yield return new WaitWhile(() => evacuationSource.isPlaying);
+
+        evacuationSource.clip = siren;
+        evacuationSource.loop = true;
+        evacuationSource.Play();
     }
 }
