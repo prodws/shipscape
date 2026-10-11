@@ -5,6 +5,15 @@ public interface IPickup
     GameObject WorldObject { get; }
     GameObject HeldPrefab { get; }
 
-    void OnPickedUp();
+    public virtual void OnPickedUp()
+    {
+        AudioManager.Instance.PlayItemPickup();
+    }
+
+    public virtual void OnDropped()
+    {
+        AudioManager.Instance.PlayItemDrop();
+    }
+
 
 }

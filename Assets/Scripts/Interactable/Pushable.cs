@@ -12,9 +12,17 @@ public class Pushable : MonoBehaviour
             rb.constraints = RigidbodyConstraints.FreezeRotation;
         }
 
+    [SerializeField] private float pushSoundCooldown = 0.4f;
+    private float nextPushSoundTime;
+
     public void Push(Vector3 direction)
     {
-        //Debug.Log("Moving pushable");
         rb.linearVelocity = direction * pushSpeed;
+
+        if (Time.time >= nextPushSoundTime)
+        {
+            AudioManager.Instance.PlayBoxPush();
+            nextPushSoundTime = Time.time + pushSoundCooldown;
+        }
     }
 }

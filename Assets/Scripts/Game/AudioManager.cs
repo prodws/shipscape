@@ -22,10 +22,10 @@ public class AudioManager : MonoBehaviour
     [SerializeField] private AudioClip evacuate;
     [SerializeField] private AudioClip siren;
 
+    [SerializeField] private AudioClip itemPickup;
+    [SerializeField] private AudioClip itemDrop;
+
     [SerializeField] private AudioClip keyPickup;
-    [SerializeField] private AudioClip keyDrop;
-    [SerializeField] private AudioClip screwdriverPickup;
-    [SerializeField] private AudioClip screwdriverDrop;
     [SerializeField] private AudioClip boxPush;
     [SerializeField] private AudioClip waterWalk;
     [SerializeField] private AudioClip objectSplash;
@@ -79,9 +79,8 @@ public class AudioManager : MonoBehaviour
     }
 
     public void PlayKeyPickup() => Play(keyPickup);
-    public void PlayKeyDrop() => Play(keyDrop);
-    public void PlayScrewdriverPickup() => Play(screwdriverPickup);
-    public void PlayScrewdriverDrop() => Play(screwdriverDrop);
+    public void PlayItemPickup() => Play(itemPickup);
+    public void PlayItemDrop() => Play(itemDrop);
     public void PlayBoxPush() => Play(boxPush);
     public void PlayWaterWalk() => Play(waterWalk);
     public void PlayObjectSplash() => Play(objectSplash);

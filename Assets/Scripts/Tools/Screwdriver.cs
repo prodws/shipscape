@@ -19,6 +19,4 @@ public class Screwdriver : MonoBehaviour, ITool, IPickup
         if (screw != null)
             screw.Unscrew();
     }
-
-    public void OnPickedUp() {}
 }

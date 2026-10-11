@@ -19,6 +19,9 @@ public class Key : MonoBehaviour, ITool, IPickup
             padlock.Unlock();
     }
 
-    public void OnPickedUp() {}
+    public void OnPickedUp()
+    {
+        AudioManager.Instance.PlayKeyPickup();
+    }
 
 }

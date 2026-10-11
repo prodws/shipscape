@@ -67,6 +67,9 @@ public class EquipmentManager : MonoBehaviour
         if (currentTool == null)
             return;
 
+        IPickup pickup = equippedToolObject.GetComponent<IPickup>();
+        pickup?.OnDropped();
+
         CharacterController controller = GetComponent<CharacterController>();
 
         GameObject dropped = Instantiate(
