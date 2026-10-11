@@ -52,6 +52,7 @@ public class FirstPersonMovement : MonoBehaviour
         controller.height = standingHeight;
 
         standCheckMask = LayerMask.GetMask("Default");
+        standCheckMask &= ~LayerMask.GetMask("IgnorePlayer");
     }
 
     private bool ValidateDependencies()
