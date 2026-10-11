@@ -7589,7 +7589,7 @@ MonoBehaviour:
   waterGushing: {fileID: 8300000, guid: 690bba35e69de9245bcce6ead95a581a, type: 3}
   rattle: {fileID: 8300000, guid: a0d334e7ac71a91c989405e6d7077643, type: 3}
   evacuate: {fileID: 0}
-  siren: {fileID: 8300000, guid: df2805843a9e453fcb8a66bab29e1c79, type: 3}
+  siren: {fileID: 8300000, guid: 446da4b5f75370f0bab5eb196407ea90, type: 3}
   keyPickup: {fileID: 0}
   keyDrop: {fileID: 0}
   screwdriverPickup: {fileID: 0}
@@ -8594,7 +8594,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4000010452992690, guid: 4f0247688049bc04bb2eae2c407f514b, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.49
+      value: 3.253
       objectReference: {fileID: 0}
     - target: {fileID: 4000010452992690, guid: 4f0247688049bc04bb2eae2c407f514b, type: 3}
       propertyPath: m_LocalRotation.w
@@ -21505,6 +21505,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -6903779960905257620, guid: 6dd5bd716fd4fa2c581cbe34ea3182ba, type: 3}
+      propertyPath: m_IsKinematic
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1205352935815915705, guid: 6dd5bd716fd4fa2c581cbe34ea3182ba, type: 3}
       propertyPath: m_Name
       value: Screwdriver
