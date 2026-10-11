@@ -66,7 +66,9 @@ public class FirstPersonMovement : MonoBehaviour
 
         ApplyGravity();
 
-        isCrouching = crouchAction.IsPressed();
+        bool crouchHeld = crouchAction.IsPressed();
+        isCrouching = crouchHeld || !HasRoomToStand();
+        
         Move(moveInput);
 
         UpdateCrouch(isCrouching);
