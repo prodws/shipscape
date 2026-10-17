@@ -9,11 +9,15 @@ public class FirstPersonCamera : MonoBehaviour
 
     [SerializeField] CharacterController controller;
     [SerializeField] float eyeOffset = 0.2f;
+    public static float SensitivityMultiplier = 1f;
 
     float pitch;
+    
 
     private void Awake()
     {
+        SensitivityMultiplier = PlayerPrefs.GetFloat("sensitivity", 1f);
+
         controller = GetComponentInParent<CharacterController>();
 
         if (!ValidateDependencies())
@@ -70,11 +74,13 @@ public class FirstPersonCamera : MonoBehaviour
             return;
         }
 
+        float s = sensitivity * SensitivityMultiplier;
+
         // Turn the entire player left/right
-        transform.parent.Rotate(Vector3.up * mouse.x * sensitivity);
+        transform.parent.Rotate(Vector3.up * mouse.x * s);
 
         // Turn only the camera up/down
-        pitch -= mouse.y * sensitivity;
+        pitch -= mouse.y * s;
         pitch = Mathf.Clamp(pitch, minPitch, maxPitch);
 
         transform.localRotation = Quaternion.Euler(pitch, 0f, 0f);

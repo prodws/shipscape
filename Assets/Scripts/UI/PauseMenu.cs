@@ -15,15 +15,37 @@ public class PauseMenu : MonoBehaviour
     private bool paused;
     public static bool IsPaused { get; private set; }
 
+    [SerializeField] private GameObject pausePanel;
+    [SerializeField] private GameObject settingsPanel;
+
+    public void OpenSettings()
+    {
+        pausePanel.SetActive(false);
+        settingsPanel.SetActive(true);
+    }
+
+    public void CloseSettings()
+    {
+        settingsPanel.SetActive(false);
+        pausePanel.SetActive(true);
+    }
+
+
     private void Awake()
     {
         pauseAction = playerInput.actions["Pause"];
+        SetPaused(false);
     }
 
     private void Update()
     {
         if (pauseAction.WasPressedThisFrame())
-            SetPaused(!paused);
+        {
+            if (paused && settingsPanel.activeSelf)
+                CloseSettings();
+            else
+                SetPaused(!paused);
+        }
 
         float target = paused ? 1f : 0f;
         blurVolume.weight = Mathf.MoveTowards(
@@ -33,12 +55,19 @@ public class PauseMenu : MonoBehaviour
     public void SetPaused(bool value)
     {
         IsPaused = value;
+        paused = value;
+
         hudRoot.SetActive(!value);
         AudioListener.pause = value;
-        paused = value;
+        if (AudioManager.Instance != null)
+            AudioManager.Instance.SetHeartbeatAudible(value);
         menuRoot.SetActive(value);
-        Time.timeScale = value ? 0f : 1f;
+        blurVolume.weight = value ? 1f : 0f;
 
+        pausePanel.SetActive(true);
+        settingsPanel.SetActive(false);
+
+        Time.timeScale = value ? 0f : 1f;
         Cursor.lockState = value ? CursorLockMode.None : CursorLockMode.Locked;
         Cursor.visible = value;
     }
