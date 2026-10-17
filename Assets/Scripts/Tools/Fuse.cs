@@ -28,14 +28,17 @@ public class Fuse : MonoBehaviour, IPickup, ITool
         collider.enabled = true;
     }
 
-    public void Use(RaycastHit hit)
+    public bool Use(RaycastHit hit)
     {
         FuseSlot slot = hit.collider.GetComponent<FuseSlot>();
-        if (slot == null)
-            return;
+        if (slot != null)
+        {
+            slot.InsertFuse();
+            equipmentManager.Unequip();
+            return true;
+        }
+        return false;
 
-        slot.InsertFuse();
-        equipmentManager.Unequip();
     }
 
     public void SetCurrentSlot(FuseSlot slot)

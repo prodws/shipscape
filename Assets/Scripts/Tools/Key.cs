@@ -11,12 +11,17 @@ public class Key : MonoBehaviour, ITool, IPickup
 
     public ToolInput Input => ToolInput.Interact;
 
-    public void Use(RaycastHit hit)
+    public bool Use(RaycastHit hit)
     {
         Padlock padlock = hit.collider.GetComponentInParent<Padlock>();
 
         if (padlock != null)
+        {
             padlock.Unlock();
+            return true;
+        }
+        return false;
+            
     }
 
     public void OnPickedUp()

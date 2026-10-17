@@ -10,15 +10,15 @@ public class Hammer : MonoBehaviour, ITool, IPickup
     public GameObject PickupPrefab => pickupPrefab;
     public ToolInput Input => ToolInput.Attack;
 
-    public void Use(RaycastHit hit)
+    public bool Use(RaycastHit hit)
     {
         Debris debris = hit.collider.GetComponentInParent<Debris>();
 
-        if (debris == null)
-            return;
-
-        Debug.Log("Hitting " + debris.gameObject.name);
-
-        debris.Hit(transform.forward);
+        if (debris != null)
+        {
+            debris.Hit(transform.forward);
+            return true;
+        }
+        return false;
     }
 }

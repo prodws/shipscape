@@ -173,8 +173,7 @@ public class PlayerInteractor : MonoBehaviour
 
         if (IsToolActivated(tool))
         {
-            tool.Use(hit);
-            return true;
+            return tool.Use(hit);
         }
         return false;
             

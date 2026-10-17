@@ -12,11 +12,14 @@ public class Screwdriver : MonoBehaviour, ITool, IPickup
 
 
 
-    public void Use(RaycastHit hit)
+    public bool Use(RaycastHit hit)
     {
         Screw screw = hit.collider.GetComponentInParent<Screw>();
 
-        if (screw != null)
+        if (screw != null){
             screw.Unscrew();
+            return true;
+        }
+        return false;
     }
 }
