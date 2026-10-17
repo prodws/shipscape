@@ -111,6 +111,8 @@ public class AudioManager : MonoBehaviour
     {
         heartBeatSource.clip = heartbeat;
         heartBeatSource.loop = true;
+        heartBeatSource.ignoreListenerPause = true;
+        heartBeatSource.mute = !PauseMenu.IsPaused;
         heartBeatSource.Play();
         Debug.Log($"Source: {heartBeatSource}, Clip: {heartBeatSource?.clip}, Active: {heartBeatSource?.gameObject.activeInHierarchy}");
     }
@@ -185,5 +187,10 @@ public class AudioManager : MonoBehaviour
         evacuationSource.Play();
     }
 
+    public void SetHeartbeatAudible(bool audible)
+    {
+        if (heartBeatSource != null)
+            heartBeatSource.mute = !audible;
+    }
     
 }
