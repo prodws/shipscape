@@ -1,7 +1,7 @@
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody))]
-public class Screw : MonoBehaviour
+public class Screw : MonoBehaviour, IInteractionPrompt
 {
     [SerializeField] private float screwLength = 0.1f;
     [SerializeField] private float step = 0.5f;
@@ -12,8 +12,8 @@ public class Screw : MonoBehaviour
     public bool IsScrewedIn => isScrewedIn;
     private Vector3 startLocalPosition;
 
-
-     private void Awake()
+    [SerializeField] private EquipmentManager equipmentManager;
+    private void Awake()
     {
         rb = GetComponent<Rigidbody>();
         rb.isKinematic = true;
@@ -55,5 +55,14 @@ public class Screw : MonoBehaviour
             Debug.Log($"This collider: {contact.thisCollider.name}");
             Debug.Log($"Other collider: {contact.otherCollider.name}");
         }
+    }
+
+    public string GetPrompt()
+    {
+        if (!isScrewedIn) return null;
+
+        return equipmentManager.CurrentTool is Screwdriver
+                ? Prompt.Hold("unscrew")
+                : "stuck";
     }
 }

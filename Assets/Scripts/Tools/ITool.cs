@@ -6,6 +6,4 @@ public interface ITool
     ToolInput Input { get; }
 
     void Use(RaycastHit hit);
-
-    
 }

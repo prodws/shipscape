@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Padlock : MonoBehaviour
+public class Padlock : MonoBehaviour, IInteractionPrompt
 {
     [SerializeField] private bool isLocked = true;
 
@@ -27,5 +27,14 @@ public class Padlock : MonoBehaviour
 
         AudioManager.Instance.PlayItemDrop();
         equipmentManager.Unequip();
+    }
+
+    public string GetPrompt()
+    {
+        if (!isLocked) return null;
+
+        return equipmentManager.CurrentTool is Key
+                ? Prompt.Press("unlock", "LMB")
+                : "locked";
     }
 }

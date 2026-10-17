@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class PadlockedDoor : MonoBehaviour
+public class PadlockedDoor : MonoBehaviour, IInteractionPrompt
 {
     [SerializeField] private Padlock padlock;
     [SerializeField] private float doorLength = 1.5f;
@@ -16,18 +16,24 @@ public class PadlockedDoor : MonoBehaviour
 
     public void Open()
     {
-        if (padlock.IsLocked)
-            return; 
-
-        //Debug.Log("Opening door");
+        if (padlock.IsLocked || IsFullyOpen)
+        return;
 
         float distance = Vector3.Distance(startLocalPosition, transform.localPosition);
 
         if (distance < doorLength)
         {
             transform.localPosition -= Vector3.forward * step * Time.deltaTime;
-            Debug.Log("Opening door");
         }
+    }
+    
+    private bool IsFullyOpen =>
+    Vector3.Distance(startLocalPosition, transform.localPosition) >= doorLength;
+
+
+    public string GetPrompt()
+    {
+        return padlock.IsLocked || IsFullyOpen ? null : Prompt.Hold("open");
     }
 
 

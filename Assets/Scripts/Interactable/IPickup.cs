@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public interface IPickup
+public interface IPickup : IInteractionPrompt
 {
     GameObject WorldObject { get; }
     GameObject HeldPrefab { get; }
@@ -15,5 +15,5 @@ public interface IPickup
         AudioManager.Instance.PlayItemDrop();
     }
 
-
+    string IInteractionPrompt.GetPrompt() =>  Prompt.Press("pick up");
 }

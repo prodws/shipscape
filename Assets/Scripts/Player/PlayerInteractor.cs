@@ -18,7 +18,7 @@ public class PlayerInteractor : MonoBehaviour
     private bool isPushing;
     public bool IsPushing => isPushing;
 
-
+    [SerializeField] private InteractionCue cue;
 
     private void Awake()
     {
@@ -64,11 +64,17 @@ public class PlayerInteractor : MonoBehaviour
 
         if (!TryGetHit(out RaycastHit hit))
         {
-            //Debug.Log("Hit miss");
+            isPushing = false;
+            cue.Hide();
             return;
         }
 
-        //Debug.Log(hit.collider.name);
+        var prompt = hit.collider.GetComponentInParent<IInteractionPrompt>();
+        string text = prompt?.GetPrompt();
+
+        if (string.IsNullOrEmpty(text)) cue.Hide();
+        else cue.Show(text);
+
 
         if (HandleToolUse(hit)) return;
         HandlePickup(hit);
@@ -88,7 +94,6 @@ public class PlayerInteractor : MonoBehaviour
 
     private void HandlePush(RaycastHit hit)
     {
-        isPushing = false;
 
         if (!interactAction.IsPressed())
             return;

@@ -23,5 +23,4 @@ public class Key : MonoBehaviour, ITool, IPickup
     {
         AudioManager.Instance.PlayKeyPickup();
     }
-
 }

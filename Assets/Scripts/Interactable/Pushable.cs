@@ -1,7 +1,7 @@
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody))]
-public class Pushable : MonoBehaviour
+public class Pushable : MonoBehaviour, IInteractionPrompt
 {
     [SerializeField] private Rigidbody rb;
     [SerializeField] private float pushSpeed = 1.5f;
@@ -24,5 +24,10 @@ public class Pushable : MonoBehaviour
             AudioManager.Instance.PlayBoxPush();
             nextPushSoundTime = Time.time + pushSoundCooldown;
         }
+    }
+
+    public string GetPrompt()
+    {
+        return Prompt.Hold("push");
     }
 }

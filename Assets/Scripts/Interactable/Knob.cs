@@ -1,7 +1,7 @@
 using System.Collections;
 using UnityEngine;
 
-public class Knob : MonoBehaviour
+public class Knob : MonoBehaviour, IInteractionPrompt
 {
     [SerializeField] Panel panel;
     [SerializeField] TriggerDoor panelDoor;
@@ -17,5 +17,10 @@ public class Knob : MonoBehaviour
 
         panel.disableKnobCollider();
         panelDoor.Open();
+    }
+
+    public string GetPrompt()
+    {
+        return "[E] turn knob";
     }
 }
