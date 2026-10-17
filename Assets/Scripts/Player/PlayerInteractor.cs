@@ -111,16 +111,23 @@ public class PlayerInteractor : MonoBehaviour
         
     }
 
+    private PadlockedDoor activeDoor;
+
     private void HandlePadlockedDoor(RaycastHit hit)
     {
-        if (!interactAction.IsPressed())
-            return;
-        
         PadlockedDoor door = hit.collider.GetComponentInParent<PadlockedDoor>();
-        if (door != null)
+
+        if (door == null || !interactAction.IsPressed())
         {
-            door.Open();
+            activeDoor = null;
+            return;
         }
+
+        if (interactAction.WasPressedThisFrame())
+            activeDoor = door;
+
+        if (activeDoor == door)
+            door.Open();
     }
 
     private void HandleSceneDoor(RaycastHit hit)

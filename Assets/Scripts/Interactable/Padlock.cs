@@ -34,7 +34,7 @@ public class Padlock : MonoBehaviour, IInteractionPrompt
         if (!isLocked) return null;
 
         return equipmentManager.CurrentTool is Key
-                ? Prompt.Press("unlock", "LMB")
+                ? Prompt.Press("unlock")
                 : "locked";
     }
 }
