@@ -5466,6 +5466,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1304162191}
     m_Modifications:
+    - target: {fileID: 2150686524062741035, guid: bb326a7922e49244f8e2a67de8f7970f, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 2578708245294202465, guid: bb326a7922e49244f8e2a67de8f7970f, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.00012537005
@@ -5497,6 +5501,14 @@ PrefabInstance:
     - target: {fileID: 2578708245294202465, guid: bb326a7922e49244f8e2a67de8f7970f, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
       value: -144.482
+      objectReference: {fileID: 0}
+    - target: {fileID: 3698320493345120170, guid: bb326a7922e49244f8e2a67de8f7970f, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 5664090375362568020, guid: bb326a7922e49244f8e2a67de8f7970f, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 6331198039491198699, guid: bb326a7922e49244f8e2a67de8f7970f, type: 3}
       propertyPath: m_LocalPosition.x
@@ -17706,6 +17718,10 @@ PrefabInstance:
       propertyPath: knob
       value: 
       objectReference: {fileID: 410931057}
+    - target: {fileID: 7550320867846906533, guid: 1200f6ee94b7e128eb40f44d27d4b023, type: 3}
+      propertyPath: knobRotationAngle
+      value: 120
+      objectReference: {fileID: 0}
     - target: {fileID: 8835574330889482838, guid: 1200f6ee94b7e128eb40f44d27d4b023, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -21308,8 +21324,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 2341901974
-  m_fontColor: {r: 0.5882353, g: 0.5882353, b: 0.5882353, a: 0.54509807}
+    rgba: 1352046230
+  m_fontColor: {r: 0.5882353, g: 0.5882353, b: 0.5882353, a: 0.3137255}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:

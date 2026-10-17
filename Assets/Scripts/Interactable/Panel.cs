@@ -5,6 +5,7 @@ public class Panel : MonoBehaviour
 {
     [SerializeField] private GameObject cup;
     [SerializeField] private GameObject knob;
+    [SerializeField] private int knobRotationAngle = 120;
     private Rigidbody cupRb;
     private BoxCollider knobCollider;
 
@@ -47,14 +48,14 @@ public class Panel : MonoBehaviour
         Rigidbody rb = cup.GetComponent<Rigidbody>();
         rb.isKinematic = false;
         rb.useGravity = true;
+        cup.layer = LayerMask.NameToLayer("IgnorePlayer");
 
-        
     }
 
     public IEnumerator RotateKnob()
     {
         Quaternion startRotation = knob.transform.rotation;
-        Quaternion targetRotation = startRotation * Quaternion.Euler(-87, 0, 0);
+        Quaternion targetRotation = startRotation * Quaternion.Euler(-knobRotationAngle, 0, 0);
 
         float duration = 1f;
         float elapsed = 0f;
