@@ -60,6 +60,8 @@ public class PlayerInteractor : MonoBehaviour
 
     private void Update()
     {
+        if (PauseMenu.IsPaused) return;
+
         HandleDrop();
 
         if (!TryGetHit(out RaycastHit hit))

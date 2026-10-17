@@ -42,6 +42,8 @@ public class FirstPersonCamera : MonoBehaviour
 
     void Update()
     {
+        if (PauseMenu.IsPaused) return;
+
         if (Mouse.current == null)
             return;
 
